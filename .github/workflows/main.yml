@@ -1,0 +1,15 @@
+name: "merarunner"
+
+on:
+  push:
+    branches:
+    - 'features/**'
+    - 'main'
+
+jobs:
+  terraforminit:
+    name: terraform init
+    runs-on: merarunner
+    steps:
+      name: terraform init
+   
