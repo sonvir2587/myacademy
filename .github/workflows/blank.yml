@@ -6,6 +6,8 @@ on:
     - 'features/**'
     - 'main'
 
+  workflow_dispatch:
+
 jobs:
   terraform:
     runs-on: merarunner
