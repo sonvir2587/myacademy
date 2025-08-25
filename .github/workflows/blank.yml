@@ -14,7 +14,7 @@ jobs:
 
     env:
       ARM_CLIENT_ID: ${{ secrets.a4bdf46c-13be-4bfe-8456-916b00b89a60 }}
-      ARM_CLIENT_SECRET: ${{ secrets.S4p8Q~mqMoR52fBKY0Il_E7437lc0FH4Jvzb3aBU }}
+      ARM_CLIENT_SECRET: ${{ secrets.0bcb8436-bfd7-4861-8446-5e4ca96cfae8 }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.bcf304d8-21b8-4358-9c77-54b5dd26f938 }}
       ARM_TENANT_ID: ${{ secrets.d76015c1-91ed-4502-986c-b2fd34d63343 }}
 
