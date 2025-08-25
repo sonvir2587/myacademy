@@ -1,0 +1,37 @@
+name: "merarunner"
+
+on:
+  push:
+    branches:
+    - 'features/**'
+    - 'main'
+
+jobs:
+  terraform:
+    runs-on: merarunner
+
+    env:
+      ARM_CLIENT_ID: ${{ secrets.a4bdf46c-13be-4bfe-8456-916b00b89a60 }}
+      ARM_CLIENT_SECRET: ${{ secrets.S4p8Q~mqMoR52fBKY0Il_E7437lc0FH4Jvzb3aBU }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.bcf304d8-21b8-4358-9c77-54b5dd26f938 }}
+      ARM_TENANT_ID: ${{ secrets.d76015c1-91ed-4502-986c-b2fd34d63343 }}
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 4.41.0   # replace with your version
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Validate
+      run: terraform validate
+
+    - name: Terraform Plan
+      run: terraform plan
+    - name: Terraform Apply
+      run: terraform apply -auto-approve
