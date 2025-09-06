@@ -1,0 +1,50 @@
+name: "merapipeline"
+
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #   - 'features/**'
+  #   - 'main'
+
+  # workflow_dispatch
+
+permissions: 
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: merarunner
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.12.2
+
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: ecfd9442-47b8-4cdb-b550-568d5a8d8214
+        tenant-id: e30abb13-e248-442c-b835-29af747e86b6
+        subscription-id: ecf1c36f-8eba-469e-841f-a595c299e914
+               
+
+    - name: Terraform Init
+      run: terraform init
+      working-directory: myacademy/main
+
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: main
+
+    - name: Terraform Plan
+      run: terraform plan
+      working-directory: main
+      
+    # - name: Terraform Apply
+    #   run: terraform apply -auto-approve
+    #   working-directory: main
