@@ -1,13 +1,13 @@
 terraform {
-    required_providers {
-        azurerm = {
-            source = "hashicorp/azurerm"
-            version = "4.41.0"
-        }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.41.0"
     }
-    backend "azurerm" {
+  }
+  backend "azurerm" {
     resource_group_name  = "rgmaster"
-    storage_account_name = "stgmaster"
+    storage_account_name = "masterstg"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
 
@@ -15,6 +15,6 @@ terraform {
 }
 
 provider "azurerm" {
-    features {}
-    subscription_id = "bcf304d8-21b8-4358-9c77-54b5dd26f938"
+  features {}
+  subscription_id = "ecf1c36f-8eba-469e-841f-a595c299e914"
 }
