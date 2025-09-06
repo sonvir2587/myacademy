@@ -35,7 +35,7 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      working-directory: myacademy/main
+      working-directory: ./main
 
     - name: Terraform Validate
       run: terraform validate
